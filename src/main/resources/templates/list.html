@@ -34,21 +34,15 @@
 
                 <td th:text="*{good}? 'Good one' : 'Bad guy'"></td>
                 <td>
-                    <form th:action="@{/raise}" th:method="POST">
-                        <input type="submit" value="increase"/>
+                    <form th:action="@{/raisebyindex}" th:method="POST">
+                        <input type="hidden" th:value="${accountStat.index}" name="accountIndex"/>
+                        <input type="submit" value="Increase Balance"/>
                     </form>
                 </td>
             </tr>
             </tbody>
             </tr>
         </table>
-    </div>
-
-    <div>
-        <form th:action="@{/raisebyname}" th:method="POST">
-            <input type="text" name="account" id="account"/>
-            <input type="submit" value="increase"/>
-        </form>
     </div>
 
     <div>

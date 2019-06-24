@@ -41,26 +41,10 @@ public class BankController {
         return "list";
     }
 
-    @PostMapping("/raise")
-    public String raise(){
-        return "redirect:/list";
-    }
-
-    @PostMapping("/raisebyname")
-    public String raiseByName(@ModelAttribute("account") String account) {
-        list.stream().forEach(a -> {
-                    if (a.getName().toLowerCase().equals(account.toLowerCase())) {
-                        a.raise();
-                    }
-                }
-        );
-        return "redirect:/list";
-    }
-
     @PostMapping("/raisebyindex")
-    public String raiseByIndex(@ModelAttribute("account") int account) {
-        if (account < list.size()) {
-            list.get(account).raise();
+    public String raiseByIndex(@ModelAttribute("accountIndex") int accountIndex) {
+        if (accountIndex < list.size()) {
+            list.get(accountIndex).raise();
         }
         return "redirect:/list";
     }
